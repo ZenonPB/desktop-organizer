@@ -1,16 +1,19 @@
 import os
 import shutil
 from pathlib import Path
+from utils.logger import setup_logger
 from core.scanner import scan_desktop
 from core.categorizer import categorize_file
-from config.file_categorizer import CATEGORY_MAPPING, IGNORE_EXTENSIONS, IGNORE_FILES
+from config.config_manager import ConfigManager
 from typing import List, Optional, Dict
 
 class DesktopOrganizer:
     def __init__(self):
         self.desktop_path = ""
         self.organized_root= ""
-        self.logger = setup.logger()
+        self.logger = setup_logger()
+        self.config_manager = None
+
 
     def initialize(self):
         try:
@@ -22,9 +25,10 @@ class DesktopOrganizer:
             self.organized_root = os.path.join(self.desktop_path, "Arquivos_Organizados")
             
             # Carregar configurações
-            self.category_mapping = CATEGORY_MAPPING    
-            self.ignore_files = IGNORE_FILES
-            self.ignore_extensions = IGNORE_EXTENSIONS
+            self.config_manager = ConfigManager()
+            self.category_mapping = self.config_manager.get_category_mapping()
+            self.ignore_files = self.config_manager.get_ignore_files()
+            self.ignore_extensions = self.config_manager.get_ignore_extensions()
             
             logger.info("Organizador inicializado com sucesso")
             return True

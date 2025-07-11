@@ -1,0 +1,16 @@
+{
+    "root_folder": "Arquivos_Organizados",
+    "category_mapping": {
+        "Documentos": [".pdf", ".docx", ".doc", ".txt", ".odt", ".rtf"],
+        "Planilhas": [".xlsx", ".xls", ".csv", ".ods"],
+        "Apresentacoes": [".pptx", ".ppt", ".odp"],
+        "Imagens": [".jpg", ".jpeg", ".png", ".gif", ".bmp", ".svg", ".webp"],
+        "Videos": [".mp4", ".mov", ".avi", ".mkv", ".flv", ".wmv"],
+        "Audios": [".mp3", ".wav", ".ogg", ".flac"],
+        "Arquivos_Compactados": [".zip", ".rar", ".7z", ".tar", ".gz"]
+    },
+    "ignore_files": ["desktop.ini"],
+    "ignore_extensions": [".lnk", ".tmp"],
+    "enable_backup": true,
+    "max_backups": 5
+}
