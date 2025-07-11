@@ -9,9 +9,12 @@ def scan_desktop(desktop_path: str):
     try:
         for item in os.listdir(desktop_path):
             item_path = os.path.join(desktop_path, item)
-            
+
             if not os.path.isfile(item_path):
-                continue
+                if item == ignore_folder_name:
+                    continue
+                else:
+                    continue
 
             if item in IGNORE_FILES:
                 continue
@@ -27,7 +30,7 @@ def scan_desktop(desktop_path: str):
                 continue
 
             valid_files.append(item_path)
-            return valid_files
+        return valid_files
     
     except Exception as e:
         print(f"Error scanning desktop: {e}")
