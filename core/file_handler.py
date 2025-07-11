@@ -1,6 +1,7 @@
 import os
 import shutil
 import logging
+import datetime
 
 logger = logging.getLogger(__name__)
 
@@ -12,7 +13,10 @@ def move_file(file_path: str, dest_root: str, category: str):
 
         os.makedirs(dest_dir, exist_ok=True)
         if os.path.exists(dest_path):
-            dest_path = _get_unique_filename(dest_path)
+            base, ext = os.path.splitext(filename)
+            timestamp = datetime.now().strftime("%Y%m%d_%H%M%S")
+            new_filename = f"{base}_{timestamp}{ext}"
+            dest_path = os.path.join(dest_dir, new_filename)
 
         shutil.move(file_path, dest_path)
 
