@@ -1,4 +1,4 @@
-category_mapping = {
+CATEGORY_MAPPING = {
     "Documents": [".pdf", ".docx", ".doc", ".txt", ".odt", ".rtf"],
     "Sheets": [".xls", ".xlsx", ".ods", ".csv"],
     "Presentations": [".ppt", ".pptx", ".odp"],
@@ -8,6 +8,6 @@ category_mapping = {
     "Compressed": [".zip", ".rar", ".tar", ".gz", ".7z"],
 }
 
-ignored_extensions = [".lnk", ".tmp", ".bak", ".old", ".part", ".temp"]
+IGNORED_EXTENSIONS = [".lnk", ".tmp", ".bak", ".old", ".part", ".temp"]
 
-ignored_files = ["desktop.ini", "thumbs.db", ".DS_Store"]
+IGNORED_FILES = ["desktop.ini", "thumbs.db", ".DS_Store"]

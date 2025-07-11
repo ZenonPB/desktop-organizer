@@ -26,6 +26,17 @@ def create_backup(file_path, backup_dir):
     
     return True
 
+def clean_old_backups(backup_dir, max_backups=5):
+    backups = sorted(os.listdir(backup_dir), key=lambda f: os.path.getmtime(os.path.join(backup_dir, f)))
+    while len(backups) > max_backups:
+        old_backup = backups.pop(0)
+        old_backup_path = os.path.join(backup_dir, old_backup)
+        try:
+            os.remove(old_backup_path)
+            print(f"Removed old backup: {old_backup_path}")
+        except Exception as e:
+            print(f"Error removing old backup {old_backup_path}: {e}")
+
 def save_filename(filename):
     invalid_chars = '<>:"/\\|?*'
     for char in invalid_chars:
